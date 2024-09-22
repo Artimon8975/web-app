@@ -15,10 +15,12 @@ def index():
 def answer():
     if request.method == 'POST':
         # Получаем данные из формы
-        obj = request.form.to_dict()
+        data = tuple(request.form.values())
+        list_color = request.form.getlist('color')
+        print(list_color)
         
         # Сохраняем данные в базу данных
-        db.add_data(obj)
+        db.add_data(data, list_color)
         
         # Получаем все записи из базы данных для отображения
         info = db.get_data()

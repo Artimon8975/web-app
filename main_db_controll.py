@@ -16,7 +16,7 @@ class DB_Controller:
         self.open()
         self.cursor.execute(
             '''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            first_name TEXT, last_name TEXT, date TEXT, calendar TEXT)''')
+            first_name TEXT, last_name TEXT, about TEXT, palitra TEXT, date TEXT, time TEXT, cites TEXT, color TEXT, main_color TEXT)''')
         self.close()
 
     def get_data(self):
@@ -28,10 +28,10 @@ class DB_Controller:
         self.close()
         return data
     
-    def add_data(self, obj):
+    def add_data(self, data, colors):
         self.open()
         
-        self.cursor.execute('''INSERT INTO users (first_name, last_name, date) VALUES (?, ?, ?)''', (obj['first_name'], obj['last_name'], obj['calendar']))
+        self.cursor.execute('''INSERT INTO users (first_name, last_name, about, palitra, date, time, cites, main_color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)''', (data))
 
         self.conn.commit()
         self.close()
