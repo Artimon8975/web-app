@@ -1,21 +1,38 @@
-<!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Результат</title>
+    <meta charset="utf-8" />
+    <title>Table Style</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/answer.css') }}">
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
 </head>
+
 <body>
-    <h1>Результаты</h1>
-    <ul>
-        {% for user in obj %}
-        <li>
-            Имя: {{ user[1] }} Фамилия: {{ user[2] }} Дата: {{ user[3] }}
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('index') }}">Вернуться к форме</a>
+    <div class="table-title">
+        <h3>Data Table</h3>
+    </div>
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">FirstName</th>
+                <th class="text-center">LastName</th>
+                <th class="text-center">About</th>
+                <th class="text-center">Palitra</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Time</th>
+                <th class="text-center">City</th>
+                <th class="text-center">Color</th>
+            </tr>
+        </thead>
+        <tbody class="table-hover">
+            {% for element in obj %}
+            <tr>
+                {% for data in element %}
+                <td class="text-center">{{data}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
-
-
-</html>

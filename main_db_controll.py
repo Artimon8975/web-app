@@ -16,7 +16,7 @@ class DB_Controller:
         self.open()
         self.cursor.execute(
             '''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            first_name TEXT, last_name TEXT, about TEXT, palitra TEXT, date TEXT, time TEXT, cites TEXT, color TEXT, main_color TEXT)''')
+            first_name TEXT, last_name TEXT, about TEXT, palitra TEXT, date TEXT, time TEXT, cites TEXT, main_color TEXT)''')
         self.close()
 
     def get_data(self):
